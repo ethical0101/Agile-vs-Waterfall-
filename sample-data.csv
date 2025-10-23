@@ -1,0 +1,92 @@
+teamId,ownerEmail,projectName,methodology,industry,size,startDate,endDate,teamSize,plannedCost,actualCost,reworkCost,overhead,defectCost,toolingCost,date,notes
+team1,user1@example.com,E-commerce Platform Redesign,Agile,E-commerce,Large,2024-01-15,2024-06-30,12,250000,235000,15000,25000,8000,12000,2024-01-15,Initial project setup
+team1,user1@example.com,Healthcare Management System,Waterfall,Healthcare,Medium,2023-09-01,2024-03-15,8,180000,195000,22000,18000,12000,8000,2023-09-01,Requirements gathering phase
+team1,user1@example.com,Mobile Banking App,Agile,Finance,Medium,2024-02-01,,6,150000,142000,8000,15000,5000,7000,2024-02-01,Sprint 1 completed
+team2,user2@example.com,CRM System Upgrade,Waterfall,Technology,Large,2023-08-15,2024-04-30,15,320000,345000,35000,32000,18000,15000,2023-08-15,Legacy system integration
+team2,user2@example.com,Inventory Management Tool,Agile,Retail,Small,2024-01-10,2024-05-15,5,85000,78000,4000,8000,3000,5000,2024-01-10,Agile methodology adopted
+team1,user1@example.com,Learning Management System,Hybrid,Education,Medium,2023-11-01,2024-07-31,9,200000,210000,18000,20000,10000,9000,2023-11-01,Hybrid approach for compliance
+team3,user3@example.com,Supply Chain Analytics,Waterfall,Manufacturing,Large,2023-07-01,2024-02-28,18,450000,485000,45000,48000,25000,22000,2023-07-01,Complex data integration
+team3,user3@example.com,Customer Portal,Agile,Technology,Small,2024-03-01,,4,65000,62000,3000,6000,2000,4000,2024-03-01,User-centric design
+team2,user2@example.com,Financial Reporting Dashboard,Waterfall,Finance,Medium,2023-10-15,2024-06-15,10,175000,188000,16000,17000,9000,8000,2023-10-15,Regulatory compliance focus
+team1,user1@example.com,Social Media Platform,Agile,Technology,Large,2024-01-01,,14,380000,365000,25000,38000,15000,18000,2024-01-01,Rapid iteration cycles
+team4,user4@example.com,Telemedicine App,Agile,Healthcare,Medium,2023-12-01,2024-08-31,7,140000,135000,9000,14000,6000,7000,2023-12-01,HIPAA compliance integrated
+team4,user4@example.com,Enterprise Resource Planning,Waterfall,Manufacturing,Large,2023-06-01,2024-12-31,20,550000,595000,58000,55000,32000,28000,2023-06-01,Multi-phase implementation
+team3,user3@example.com,Event Management System,Hybrid,Entertainment,Small,2024-02-15,,6,95000,92000,5000,9000,4000,5000,2024-02-15,Seasonal requirements
+team2,user2@example.com,Real Estate Platform,Agile,Real Estate,Medium,2023-09-15,2024-05-30,8,165000,158000,12000,16000,7000,8000,2023-09-15,Market-driven features
+team1,user1@example.com,Document Management System,Waterfall,Legal,Medium,2023-08-01,2024-04-15,11,195000,215000,24000,19000,13000,10000,2023-08-01,Compliance-heavy requirements
+team5,user5@example.com,Food Delivery App,Agile,Food Service,Small,2024-01-20,,5,75000,71000,4000,7000,3000,4000,2024-01-20,Rapid market entry
+team5,user5@example.com,Manufacturing Execution System,Waterfall,Manufacturing,Large,2023-05-15,2024-11-30,16,420000,465000,42000,45000,28000,25000,2023-05-15,Industry 4.0 integration
+team4,user4@example.com,Travel Booking Platform,Agile,Travel,Medium,2023-11-15,2024-07-15,9,185000,178000,13000,18000,8000,9000,2023-11-15,Multi-vendor integration
+team3,user3@example.com,HR Management System,Hybrid,Human Resources,Medium,2023-10-01,2024-06-30,10,160000,168000,15000,16000,9000,8000,2023-10-01,Employee self-service focus
+team2,user2@example.com,IoT Monitoring Dashboard,Agile,Technology,Small,2024-02-10,,4,55000,53000,3000,5000,2000,3000,2024-02-10,Real-time data processing
+team1,user1@example.com,Insurance Claims System,Waterfall,Insurance,Large,2023-07-15,2024-05-31,14,295000,325000,32000,30000,18000,16000,2023-07-15,Regulatory compliance critical
+team6,user6@example.com,Fitness Tracking App,Agile,Health & Fitness,Small,2024-01-05,,3,45000,42000,2000,4000,1000,2000,2024-01-05,Wearable device integration
+team6,user6@example.com,Warehouse Management System,Waterfall,Logistics,Large,2023-06-15,2024-12-15,17,385000,415000,38000,40000,22000,20000,2023-06-15,RFID integration required
+team5,user5@example.com,Online Learning Platform,Agile,Education,Medium,2023-12-15,2024-08-15,8,155000,148000,10000,15000,6000,7000,2023-12-15,Adaptive learning features
+team4,user4@example.com,Energy Management System,Hybrid,Energy,Large,2023-08-01,2024-06-30,13,275000,285000,25000,28000,15000,14000,2023-08-01,Smart grid integration
+team3,user3@example.com,Appointment Scheduling App,Agile,Healthcare,Small,2024-03-15,,5,68000,65000,4000,6000,3000,4000,2024-03-15,Multi-provider support
+team2,user2@example.com,Quality Management System,Waterfall,Manufacturing,Medium,2023-09-01,2024-05-15,12,210000,235000,28000,21000,14000,11000,2023-09-01,ISO compliance requirements
+team1,user1@example.com,Content Management Platform,Agile,Media,Medium,2024-01-25,,7,125000,118000,8000,12000,5000,6000,2024-01-25,Multi-channel publishing
+team7,user7@example.com,Fleet Management System,Waterfall,Transportation,Large,2023-05-01,2024-01-31,19,465000,510000,48000,50000,30000,27000,2023-05-01,GPS tracking integration
+team7,user7@example.com,Recipe Management App,Agile,Food Service,Small,2024-02-20,,4,58000,55000,3000,5000,2000,3000,2024-02-20,Social sharing features
+team6,user6@example.com,Property Management System,Hybrid,Real Estate,Medium,2023-11-01,2024-07-31,9,175000,182000,16000,17000,9000,8000,2023-11-01,Tenant portal included
+team5,user5@example.com,Laboratory Information System,Waterfall,Healthcare,Large,2023-07-01,2024-04-30,15,335000,365000,35000,35000,20000,18000,2023-07-01,FDA validation required
+team4,user4@example.com,Expense Management App,Agile,Finance,Small,2024-01-30,,6,72000,68000,4000,7000,3000,4000,2024-01-30,Receipt scanning feature
+team3,user3@example.com,Student Information System,Waterfall,Education,Medium,2023-08-15,2024-06-15,11,190000,208000,22000,19000,12000,10000,2023-08-15,FERPA compliance critical
+team2,user2@example.com,Inventory Optimization Tool,Agile,Retail,Small,2024-03-01,,5,62000,59000,3000,6000,2000,3000,2024-03-01,AI-powered forecasting
+team1,user1@example.com,Customer Service Platform,Hybrid,Technology,Large,2023-09-15,2024-07-15,16,395000,385000,28000,40000,18000,19000,2023-09-15,Omnichannel support
+team8,user8@example.com,Parking Management System,Waterfall,Transportation,Medium,2023-10-01,2024-06-01,8,145000,158000,18000,14000,9000,7000,2023-10-01,Smart city integration
+team8,user8@example.com,Meal Planning App,Agile,Food Service,Small,2024-02-05,,3,48000,45000,2000,4000,1000,2000,2024-02-05,Nutritional analysis
+team7,user7@example.com,Asset Management System,Waterfall,Finance,Large,2023-06-01,2024-02-29,18,425000,465000,44000,45000,26000,24000,2023-06-01,Depreciation calculations
+team6,user6@example.com,Volunteer Management Platform,Agile,Non-profit,Small,2024-01-15,,4,52000,49000,3000,5000,2000,3000,2024-01-15,Community engagement focus
+team5,user5@example.com,Clinical Trial Management,Waterfall,Healthcare,Large,2023-04-15,2024-12-15,21,485000,535000,52000,50000,32000,29000,2023-04-15,GCP compliance required
+team4,user4@example.com,Project Portfolio Dashboard,Agile,Technology,Medium,2023-12-01,2024-08-01,7,135000,128000,9000,13000,6000,7000,2023-12-01,Executive reporting focus
+team3,user3@example.com,Maintenance Management System,Hybrid,Manufacturing,Medium,2023-09-01,2024-05-31,10,185000,195000,18000,18000,11000,9000,2023-09-01,Predictive maintenance
+team2,user2@example.com,Survey Management Platform,Agile,Market Research,Small,2024-03-10,,5,65000,62000,4000,6000,3000,4000,2024-03-10,Real-time analytics
+team1,user1@example.com,Contract Management System,Waterfall,Legal,Medium,2023-07-01,2024-03-31,12,225000,248000,28000,22000,15000,12000,2023-07-01,E-signature integration
+team9,user9@example.com,Donation Management Platform,Agile,Non-profit,Small,2024-01-10,,4,58000,55000,3000,5000,2000,3000,2024-01-10,Recurring donation support
+team9,user9@example.com,Supply Chain Visibility,Waterfall,Manufacturing,Large,2023-05-01,2024-11-30,20,515000,565000,55000,52000,35000,31000,2023-05-01,Blockchain integration
+team8,user8@example.com,Telehealth Platform,Agile,Healthcare,Medium,2023-11-15,2024-07-15,8,165000,158000,12000,16000,8000,8000,2023-11-15,Video consultation focus
+team7,user7@example.com,Risk Management System,Hybrid,Finance,Large,2023-08-15,2024-06-15,14,315000,335000,32000,32000,19000,17000,2023-08-15,Regulatory reporting
+team6,user6@example.com,Event Ticketing Platform,Agile,Entertainment,Medium,2024-02-01,,6,95000,88000,6000,9000,4000,5000,2024-02-01,Dynamic pricing features
+team5,user5@example.com,Laboratory Automation,Waterfall,Healthcare,Large,2023-06-15,2024-04-15,16,395000,435000,42000,40000,25000,22000,2023-06-15,Robotic integration
+team4,user4@example.com,Time Tracking Application,Agile,Technology,Small,2024-01-20,,5,68000,64000,4000,6000,3000,4000,2024-01-20,Mobile-first design
+team3,user3@example.com,Compliance Management System,Waterfall,Legal,Medium,2023-09-15,2024-07-15,11,205000,225000,25000,20000,14000,11000,2023-09-15,Multi-jurisdiction support
+team2,user2@example.com,Social Impact Platform,Agile,Non-profit,Small,2024-03-05,,4,55000,52000,3000,5000,2000,3000,2024-03-05,Impact measurement focus
+team1,user1@example.com,Manufacturing Planning System,Waterfall,Manufacturing,Large,2023-04-01,2024-12-31,22,565000,625000,62000,58000,38000,34000,2023-04-01,ERP integration required
+team10,user10@example.com,Fitness Class Booking,Agile,Health & Fitness,Small,2024-02-15,,3,42000,39000,2000,4000,1000,2000,2024-02-15,Class capacity management
+team10,user10@example.com,Procurement Management System,Waterfall,Manufacturing,Large,2023-07-15,2024-05-15,17,445000,485000,46000,48000,28000,26000,2023-07-15,Vendor management focus
+team9,user9@example.com,Customer Feedback Platform,Agile,Technology,Medium,2023-12-10,2024-08-10,7,145000,138000,10000,14000,7000,8000,2023-12-10,Sentiment analysis
+team8,user8@example.com,Facility Management System,Hybrid,Real Estate,Medium,2023-10-15,2024-06-30,9,195000,205000,19000,19000,12000,10000,2023-10-15,IoT sensor integration
+team7,user7@example.com,Loyalty Program Platform,Agile,Retail,Small,2024-01-25,,5,75000,71000,4000,7000,3000,4000,2024-01-25,Gamification features
+team6,user6@example.com,Clinical Data Management,Waterfall,Healthcare,Large,2023-05-15,2024-01-15,19,475000,525000,51000,50000,32000,28000,2023-05-15,21 CFR Part 11 compliance
+team5,user5@example.com,Knowledge Management System,Agile,Technology,Medium,2024-01-05,,8,155000,148000,11000,15000,7000,8000,2024-01-05,AI-powered search
+team4,user4@example.com,Audit Management Platform,Waterfall,Finance,Medium,2023-08-01,2024-04-30,10,185000,205000,23000,18000,13000,10000,2023-08-01,SOX compliance focus
+team3,user3@example.com,Delivery Route Optimization,Agile,Logistics,Small,2024-03-20,,4,62000,58000,3000,6000,2000,3000,2024-03-20,Machine learning algorithms
+team2,user2@example.com,Patient Portal System,Waterfall,Healthcare,Medium,2023-09-01,2024-05-31,12,215000,238000,26000,21000,15000,12000,2023-09-01,HIPAA compliance critical
+team1,user1@example.com,Digital Marketplace,Agile,E-commerce,Large,2024-01-01,,15,425000,405000,30000,42000,20000,23000,2024-01-01,Multi-vendor support
+team11,user11@example.com,Appointment Reminder System,Agile,Healthcare,Small,2024-02-10,,3,45000,42000,2000,4000,1000,2000,2024-02-10,SMS and email integration
+team11,user11@example.com,Enterprise Content Management,Waterfall,Technology,Large,2023-06-01,2024-02-28,20,495000,545000,53000,52000,33000,30000,2023-06-01,Document lifecycle management
+team10,user10@example.com,Performance Management System,Agile,Human Resources,Medium,2023-11-01,2024-07-31,8,175000,168000,13000,17000,8000,9000,2023-11-01,360-degree feedback
+team9,user9@example.com,Inventory Tracking System,Hybrid,Retail,Medium,2023-10-01,2024-06-01,9,165000,172000,16000,16000,10000,8000,2023-10-01,RFID integration
+team8,user8@example.com,Subscription Management Platform,Agile,Technology,Small,2024-01-15,,6,85000,81000,5000,8000,4000,5000,2024-01-15,Recurring billing focus
+team7,user7@example.com,Quality Control System,Waterfall,Manufacturing,Large,2023-04-15,2024-12-15,18,455000,505000,48000,48000,30000,27000,2023-04-15,Statistical process control
+team6,user6@example.com,Community Platform,Agile,Social,Medium,2024-02-20,,7,125000,118000,8000,12000,6000,7000,2024-02-20,User-generated content
+team5,user5@example.com,Regulatory Reporting System,Waterfall,Finance,Medium,2023-07-01,2024-03-31,11,195000,218000,24000,19000,14000,11000,2023-07-01,Multi-jurisdiction compliance
+team4,user4@example.com,Task Management Application,Agile,Technology,Small,2024-03-01,,4,58000,55000,3000,5000,2000,3000,2024-03-01,Kanban board interface
+team3,user3@example.com,Environmental Monitoring System,Waterfall,Environmental,Large,2023-05-01,2024-01-31,16,385000,425000,41000,40000,24000,22000,2023-05-01,Sensor network integration
+team2,user2@example.com,Customer Onboarding Platform,Agile,Finance,Small,2024-01-30,,5,72000,68000,4000,7000,3000,4000,2024-01-30,KYC automation
+team1,user1@example.com,Business Intelligence Dashboard,Hybrid,Technology,Large,2023-08-15,2024-06-15,14,345000,365000,33000,35000,19000,17000,2023-08-15,Real-time analytics
+team12,user12@example.com,Medication Management App,Agile,Healthcare,Small,2024-02-25,,3,48000,45000,2000,4000,1000,2000,2024-02-25,Prescription tracking
+team12,user12@example.com,Supplier Relationship Management,Waterfall,Manufacturing,Large,2023-06-15,2024-04-15,19,485000,535000,52000,50000,32000,29000,2023-06-15,Vendor scorecards
+team11,user11@example.com,Learning Analytics Platform,Agile,Education,Medium,2023-12-01,2024-08-31,8,165000,158000,12000,16000,8000,8000,2023-12-01,Student performance tracking
+team10,user10@example.com,Incident Management System,Hybrid,Technology,Medium,2023-09-15,2024-05-15,10,185000,195000,18000,18000,11000,9000,2023-09-15,ITIL framework
+team9,user9@example.com,Marketplace Analytics,Agile,E-commerce,Small,2024-03-15,,5,68000,64000,4000,6000,3000,4000,2024-03-15,Seller performance metrics
+team8,user8@example.com,Document Workflow System,Waterfall,Legal,Medium,2023-07-15,2024-05-15,12,225000,248000,28000,22000,15000,12000,2023-07-15,Approval routing
+team7,user7@example.com,Inventory Forecasting Tool,Agile,Retail,Small,2024-01-10,,4,62000,58000,3000,6000,2000,3000,2024-01-10,Demand prediction
+team6,user6@example.com,Clinical Decision Support,Waterfall,Healthcare,Large,2023-04-01,2024-12-31,21,525000,585000,57000,55000,35000,32000,2023-04-01,Evidence-based guidelines
+team5,user5@example.com,Social Media Management,Agile,Marketing,Medium,2024-02-01,,6,95000,88000,6000,9000,4000,5000,2024-02-01,Multi-platform posting
+team4,user4@example.com,Compliance Monitoring System,Waterfall,Finance,Medium,2023-08-15,2024-06-15,11,205000,225000,25000,20000,14000,11000,2023-08-15,Real-time alerts
+team3,user3@example.com,Resource Planning Tool,Agile,Technology,Small,2024-03-10,,5,65000,62000,4000,6000,3000,4000,2024-03-10,Capacity planning
+team2,user2@example.com,Patient Monitoring System,Waterfall,Healthcare,Large,2023-05-15,2024-03-15,17,445000,485000,46000,48000,28000,26000,2023-05-15,Remote monitoring
+team1,user1@example.com,E-learning Authoring Tool,Agile,Education,Medium,2023-11-15,2024-07-15,7,145000,138000,10000,14000,7000,8000,2023-11-15,Interactive content creation

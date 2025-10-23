@@ -1,0 +1,21 @@
+Project Name,Methodology,Industry,Size,Team Size,Start Date,End Date,Status,Planned Cost,Actual Cost
+Online Store Redesign,Agile,Technology,Large,12,2024-01-15,2024-06-30,Completed,180000,165000
+Enterprise Resource Planning,Waterfall,Manufacturing,Large,15,2024-02-01,2024-12-31,Active,250000,180000
+Customer Service App,Agile,Healthcare,Medium,8,2024-03-01,2024-08-15,Active,120000,95000
+Legacy System Migration,Hybrid,Financial Services,Medium,6,2024-01-01,2024-04-30,Completed,85000,92000
+Corporate Website Update,Agile,Marketing,Small,4,2024-04-01,2024-06-01,Completed,45000,38000
+Inventory Management System,Waterfall,Retail,Large,10,2024-01-10,2024-09-30,Active,200000,145000
+Mobile Banking App,Agile,Financial Services,Large,14,2024-02-15,2024-10-31,Active,280000,220000
+HR Portal Development,Hybrid,Human Resources,Medium,7,2024-03-15,2024-07-30,Active,110000,85000
+Supply Chain Optimization,Waterfall,Manufacturing,Large,12,2024-01-20,2024-08-15,Active,190000,160000
+Customer Analytics Platform,Agile,Technology,Medium,9,2024-04-01,2024-09-01,Planning,150000,0
+Document Management System,Waterfall,Government,Medium,8,2024-02-01,2024-06-15,Completed,95000,88000
+Social Media Dashboard,Agile,Marketing,Small,5,2024-03-10,2024-05-20,Completed,55000,52000
+Payment Processing System,Hybrid,Financial Services,Large,11,2024-01-05,2024-07-31,Active,220000,175000
+Learning Management System,Agile,Education,Medium,6,2024-02-20,2024-08-30,Active,130000,110000
+Quality Control App,Waterfall,Manufacturing,Small,4,2024-04-15,2024-07-01,Planning,65000,0
+CRM Integration,Hybrid,Technology,Medium,8,2024-03-01,2024-08-15,Active,140000,105000
+Fleet Management System,Waterfall,Transportation,Large,13,2024-01-15,2024-11-30,Active,240000,190000
+Telemedicine Platform,Agile,Healthcare,Large,16,2024-02-10,2024-12-15,Active,300000,245000
+Budget Planning Tool,Hybrid,Government,Small,5,2024-04-01,2024-06-30,Active,70000,55000
+Content Management System,Agile,Media,Medium,7,2024-03-20,2024-09-15,Active,125000,100000
