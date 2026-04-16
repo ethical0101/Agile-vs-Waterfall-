@@ -1,270 +1,210 @@
-# Comparative Analysis Dashboard - Agile vs Waterfall
+# Agile vs Waterfall Cost Analysis Dashboard
 
-A comprehensive web application for analyzing and comparing project costs between Agile and Waterfall methodologies. This application provides statistical analysis, interactive visualizations, and actionable insights for project management teams.
+A React + TypeScript dashboard for comparing Agile and Waterfall projects using project cost data stored in Firebase.
 
-## Features
+The app supports:
+- User authentication (email/password and Google sign-in)
+- Per-user project CRUD with Firestore
+- KPI dashboard for portfolio-level visibility
+- Analysis view with methodology comparisons and export to CSV
 
-### Core Functionality
-- **Multi-tenant Authentication**: Firebase Auth with email/password and Google OAuth
-- **Project Management**: Complete CRUD operations for projects and cost tracking
-- **Statistical Analysis**: Welch's t-test, Cohen's d effect size, confidence intervals
-- **Interactive Visualizations**: Charts and graphs using Chart.js
-- **Data Export**: PDF and CSV export capabilities
-- **Bulk Import**: CSV upload for sample datasets
-- **Admin Panel**: User management and sample data seeding
+## What This Project Is
 
-### Analysis Capabilities
-- Compare methodologies across multiple metrics (cost, variance, rework, overhead)
-- Filter by industry, project size, date range, and team size
-- Statistical significance testing with plain-English interpretations
-- Automated recommendations based on analysis results
-- Reproducible analysis configurations
+This project is a single-page web app built with Vite. Authenticated users can create and manage project records, then compare cost behavior across methodologies.
+
+Data access is multi-tenant by design: each signed-in user can only read and write their own `projects` and `analysis` documents.
 
 ## Tech Stack
 
-- **Frontend**: React 18 + TypeScript + Vite
-- **Styling**: Tailwind CSS
-- **Charts**: Chart.js + react-chartjs-2
-- **Backend**: Firebase (Auth, Firestore)
-- **Routing**: React Router v6
-- **Statistics**: Custom implementation with Welch's t-test
+- Frontend: React 18, TypeScript, Vite
+- Routing: React Router
+- Styling: Tailwind CSS
+- Charts: Chart.js + react-chartjs-2
+- Backend services: Firebase Auth + Firestore
+- Testing: Vitest (statistics utilities)
 
-## Setup Instructions
+## Project Structure
 
-### Prerequisites
-- Node.js 18+ and npm
-- Firebase project with Authentication and Firestore enabled
+```text
+src/
+  components/
+    auth/
+    charts/
+    dashboard/
+    debug/
+    layout/
+  contexts/
+    AuthContext.tsx
+    ProjectsContext.tsx
+  lib/
+    firebase.ts
+    firestoreService.ts
+  pages/
+    Analysis.tsx
+    Dashboard.tsx
+    Projects.tsx
+    Settings.tsx
+  types/
+  utils/
+```
 
-### 1. Clone and Install
+## Firebase Configuration
+
+The app reads Firebase configuration from Vite env variables:
+
+- `VITE_FIREBASE_API_KEY`
+- `VITE_FIREBASE_AUTH_DOMAIN`
+- `VITE_FIREBASE_PROJECT_ID`
+- `VITE_FIREBASE_STORAGE_BUCKET`
+- `VITE_FIREBASE_MESSAGING_SENDER_ID`
+- `VITE_FIREBASE_APP_ID`
+- `VITE_FIREBASE_MEASUREMENT_ID` (optional in current runtime code)
+
+### Local Setup
+
+1. Install dependencies:
+
 ```bash
-git clone <repository-url>
-cd comparative-analysis-dashboard
 npm install
 ```
 
-### 2. Firebase Configuration
-1. Create a Firebase project at https://console.firebase.google.com
-2. Enable Authentication (Email/Password and Google providers)
-3. Enable Firestore Database
-4. Copy your Firebase config from Project Settings > General > Your apps
+2. Use the provided environment file values (already set in `.env.example` for this Firebase project) and keep local secrets in `.env.local`.
 
-### 3. Environment Setup
-```bash
-cp .env.example .env
-```
+3. Start development server:
 
-Edit `.env` with your Firebase configuration:
-```
-VITE_FIREBASE_API_KEY=your_api_key_here
-VITE_FIREBASE_AUTH_DOMAIN=your_project.firebaseapp.com
-VITE_FIREBASE_PROJECT_ID=your_project_id
-VITE_FIREBASE_STORAGE_BUCKET=your_project.appspot.com
-VITE_FIREBASE_MESSAGING_SENDER_ID=123456789
-VITE_FIREBASE_APP_ID=1:123456789:web:abcdef123456
-```
-
-### 4. Firestore Setup
-1. Deploy Firestore rules:
-```bash
-firebase deploy --only firestore:rules
-```
-
-2. Deploy Firestore indexes:
-```bash
-firebase deploy --only firestore:indexes
-```
-
-### 5. Run Development Server
 ```bash
 npm run dev
 ```
 
-The application will be available at `http://localhost:5173`
+Default dev URL:
+- `http://localhost:5173`
 
-## Sample Data
+## Firestore Rules and Indexes
 
-The project includes a sample dataset (`sample-data.csv`) with 100+ realistic project entries. To use this data:
+This repository includes:
+- `firestore.rules`
+- `firestore.indexes.json`
 
-1. Sign in to the application
-2. Navigate to Projects page
-3. Use the "Import CSV" functionality
-4. Upload the `sample-data.csv` file
+Deploy them with Firebase CLI:
 
-### Sample Data Structure
-```csv
-teamId,ownerEmail,projectName,methodology,industry,size,startDate,endDate,teamSize,plannedCost,actualCost,reworkCost,overhead,defectCost,toolingCost,date,notes
+```bash
+firebase deploy --only firestore:rules
+firebase deploy --only firestore:indexes
 ```
 
-## Usage Guide
+### Rules Model
+
+Current rules are aligned with runtime code:
+- `users/{userId}`: user can manage own profile; admin can read all user profiles
+- `projects/{projectId}`: access allowed when `request.auth.uid == userId`
+- `analysis/{analysisId}`: access allowed when `request.auth.uid == userId`
+
+## Core Application Flows
 
 ### 1. Authentication
-- Sign up with email/password or Google OAuth
-- First user becomes admin automatically
+- `AuthContext` handles auth state and user session lifecycle
+- New users get a `users/{uid}` document in Firestore
 
-### 2. Project Management
-- Add projects with methodology, industry, size, and team information
-- Track costs including planned, actual, rework, overhead, defects, and tooling
-- Import bulk data via CSV upload
+### 2. Projects
+- `ProjectsContext` subscribes to real-time updates from Firestore
+- Users can add, edit, delete projects
+- Projects page supports filtering and CSV export
 
-### 3. Running Analysis
-1. Go to Analysis Center
-2. Configure filters (methodology, industry, size, date range)
-3. Select metrics to compare
-4. Choose statistical test (Welch's t-test recommended)
-5. Click "Run Analysis"
-6. Review results, charts, and recommendations
-7. Export to PDF or CSV
+### 3. Dashboard
+- Shows KPI cards and comparison chart based on current user projects
 
-### 4. Interpreting Results
-- **P-value < 0.05**: Statistically significant difference
-- **Effect Size**:
-  - < 0.2: Small effect
-  - 0.2-0.5: Medium effect
-  - > 0.8: Large effect
-- **Confidence Intervals**: Range of likely true difference values
+### 4. Analysis
+- Builds methodology comparisons from project data
+- Saves analysis snapshots into `analysis` collection
+- CSV export is implemented
+- PDF export button is currently a placeholder in UI
 
-## Deployment
+## Data Model (Runtime)
 
-### Firebase Hosting
-1. Install Firebase CLI:
-```bash
-npm install -g firebase-tools
-```
+### `users` collection
 
-2. Login and initialize:
-```bash
-firebase login
-firebase init hosting
-```
-
-3. Build and deploy:
-```bash
-npm run build
-firebase deploy
-```
-
-### Alternative: Vercel
-1. Install Vercel CLI:
-```bash
-npm install -g vercel
-```
-
-2. Deploy:
-```bash
-npm run build
-vercel --prod
-```
-
-## Project Structure
-
-```
-src/
-├── components/          # Reusable UI components
-│   ├── auth/           # Authentication forms
-│   ├── charts/         # Chart components
-│   ├── dashboard/      # Dashboard widgets
-│   └── layout/         # Layout components
-├── contexts/           # React contexts (Auth)
-├── lib/               # External service configs
-├── pages/             # Main application pages
-├── types/             # TypeScript type definitions
-└── utils/             # Utility functions and statistics
-```
-
-## API Documentation
-
-### Statistical Functions
-
-#### `calculateSummaryStats(values: number[]): StatisticalSummary`
-Calculates descriptive statistics for a dataset.
-
-#### `performTTest(group1: number[], group2: number[]): ComparisonResult`
-Performs Welch's t-test comparing two groups with effect size calculation.
-
-### Firebase Collections
-
-#### Users Collection
-```typescript
+```ts
 {
   displayName: string;
-  email: string;
+  email: string | null;
   role: 'user' | 'admin';
-  teamId?: string;
-  createdAt: timestamp;
+  createdAt: Date;
 }
 ```
 
-#### Projects Collection
-```typescript
+### `projects` collection
+
+```ts
 {
-  teamId: string;
-  ownerId: string;
+  userId: string;
   name: string;
   methodology: 'Agile' | 'Waterfall' | 'Hybrid';
   industry: string;
   size: 'Small' | 'Medium' | 'Large';
-  startDate: timestamp;
-  endDate?: timestamp;
   teamSize: number;
-  createdAt: timestamp;
+  status: 'Active' | 'Completed' | 'On Hold';
+  plannedCost: number;
+  actualCost: number;
+  startDate: Timestamp;
+  endDate?: Timestamp;
+  createdAt: Timestamp;
+  updatedAt: Timestamp;
 }
 ```
 
-## Testing
+### `analysis` collection
 
-Run the test suite:
-```bash
-npm test
+```ts
+{
+  userId: string;
+  name: string;
+  projectIds: string[];
+  results: object;
+  configuration: object;
+  createdAt: Timestamp;
+}
 ```
 
-## Contributing
+## Available Scripts
 
-1. Fork the repository
-2. Create a feature branch
-3. Make your changes
-4. Add tests for new functionality
-5. Submit a pull request
+- `npm run dev`: start Vite development server
+- `npm run build`: create production build
+- `npm run preview`: preview production build locally
+- `npm run lint`: run ESLint
+- `npm run test`: run Vitest tests
+- `npm run seed`: seed sample projects for a user using Firebase client SDK
+- `npm run update-user`: admin script (Firebase Admin SDK) to update user account data
+- `npm run duplicate-user`: admin script (Firebase Admin SDK) to copy project data to another user
+- `npm run doc:pdf`: generate documentation PDF
 
-## Security Considerations
+## Running Tests
 
-- All data is isolated by team/user using Firestore security rules
-- Authentication required for all operations
-- Input validation on all forms
-- CSV uploads are sanitized and size-limited
+```bash
+npm run test
+```
 
-## Performance Notes
+Current automated tests focus on statistical utility logic in `test/statistics.test.ts`.
 
-- Charts are optimized for datasets up to 1000 projects
-- Statistical calculations run client-side for responsiveness
-- Firestore queries use composite indexes for efficiency
-- Images and assets are optimized for web delivery
+## Build
 
-## Troubleshooting
+```bash
+npm run build
+```
 
-### Common Issues
+Artifacts are generated in `dist/`.
 
-1. **Firebase connection errors**: Verify environment variables are correct
-2. **Authentication not working**: Check Firebase Auth providers are enabled
-3. **Charts not displaying**: Ensure Chart.js dependencies are installed
-4. **CSV import failing**: Verify CSV format matches expected structure
+## Notes and Known Gaps
 
-### Support
+- `/admin` route exists but UI is currently a placeholder.
+- PDF export in analysis page is currently a placeholder action.
+- Admin scripts require a Firebase service account key via `SERVICE_ACCOUNT` environment variable.
 
-For technical support or questions:
-1. Check the GitHub issues page
-2. Review Firebase console for backend errors
-3. Check browser console for frontend errors
+## Security Notes
+
+- Do not commit service account keys.
+- Keep local Firebase keys in `.env.local` for development.
+- Firestore access is restricted by authenticated user ownership rules.
 
 ## License
 
-MIT License - see LICENSE file for details.
-
-## Demo
-
-A live demo is available at: [Your deployed URL here]
-
-Demo credentials:
-- Email: demo@example.com
-- Password: demo123456
-
-*Note: Demo data is reset daily*
+MIT

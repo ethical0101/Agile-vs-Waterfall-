@@ -1,0 +1,369 @@
+\documentclass[12pt,a4paper]{article}
+
+\usepackage[a4paper,margin=1in]{geometry}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{fancyhdr}
+\usepackage{titlesec}
+\usepackage{array}
+\usepackage{longtable}
+\usepackage[hidelinks]{hyperref}
+
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0.6em}
+\renewcommand{\arraystretch}{1.3}
+
+\titleformat{\section}{\large\bfseries}{\thesection.}{0.5em}{}
+\titleformat{\subsection}{\normalsize\bfseries}{\thesubsection}{0.5em}{}
+
+\pagestyle{fancy}
+\fancyhf{}
+\lhead{PHASE I Report}
+\rhead{Budget Prediction and Analysis with Agile, Waterfall, Hybrid Model}
+\cfoot{\thepage}
+
+\begin{document}
+
+\begin{titlepage}
+\centering
+
+{\Large \textbf{School of Computer Science Engineering and Information Systems} \par}
+\vspace{1.5cm}
+
+{\Large \textbf{PHASE I -- Agile Development Process and DevOps Project} \par}
+\vspace{0.8cm}
+
+{\huge \textbf{Budget Prediction and Analysis with Agile, Waterfall, Hybrid Model} \par}
+\vspace{1.5cm}
+
+{\large \textbf{Course Details} \par}
+\vspace{0.4cm}
+
+\begin{tabular}{|p{4.2cm}|p{9.5cm}|}
+\hline
+\textbf{Course Code} & ISWE406L \\
+\hline
+\textbf{Course Name} & Agile Development Process and DevOps \\
+\hline
+\textbf{Institution} & School of Computer Science Engineering and Information Systems \\
+\hline
+\end{tabular}
+
+\vspace{1.2cm}
+{\large \textbf{Team Members} \par}
+\vspace{0.4cm}
+
+\begin{tabular}{|c|p{6cm}|p{5cm}|}
+\hline
+\textbf{S.No} & \textbf{Name} & \textbf{Registration Number} \\
+\hline
+1 & Kommi Druthendra & 23MIS0213 \\
+\hline
+2 & G. Sai Santhosh & 23MIS0227 \\
+\hline
+3 & G.Sadwik Reddy & 23MIS0541 \\
+\hline
+\end{tabular}
+
+\vfill
+
+\textbf{Submission Date:} \today
+
+\end{titlepage}
+
+\tableofcontents
+\newpage
+
+\section{Abstract}
+This report presents Phase I of the project titled \textit{Budget Prediction and Analysis with Agile, Waterfall, Hybrid Model}, developed under the course ISWE406L. The work focuses on applying Agile planning principles and DevOps-oriented project tracking practices using Azure DevOps. The team established a structured workflow by configuring Azure Boards, Backlogs, Work Items, and Sprint 1. A total of fifteen user stories were prepared to represent core and advanced system requirements, including authentication, project management, analytics, and administrative control.
+
+The report documents the problem context, project objectives, target users, expected features, technology stack, and sprint execution strategy. It also describes how user stories were decomposed into actionable tasks such as UI design, Firebase integration, data fetching, and chart integration. The presented approach demonstrates disciplined requirement engineering, sprint-based planning, and transparent task tracking suitable for academic evaluation and industrial practice.
+
+\section{Introduction}
+\subsection{Overview of Agile}
+Agile is an iterative and incremental software development approach that prioritizes collaboration, adaptability, and continuous delivery of value. It emphasizes short development cycles, frequent feedback, and progressive refinement of requirements. Agile enables teams to respond to evolving user needs while maintaining product quality and delivery momentum.
+
+\subsection{Overview of DevOps}
+DevOps is a set of practices that integrates software development and operations to improve deployment reliability, reduce cycle time, and enhance collaboration. In this project context, DevOps principles are reflected through transparent backlog management, sprint tracking, task ownership, and continuous visibility using Azure DevOps artifacts.
+
+\subsection{Importance in Software Engineering}
+The integration of Agile and DevOps is critical in modern software engineering because it supports:
+\begin{itemize}
+    \item Better requirement traceability from user story to implementation task.
+    \item Faster adaptation to changing business and academic project constraints.
+    \item Improved team coordination, accountability, and reporting quality.
+    \item Incremental delivery of measurable outcomes for stakeholder review.
+\end{itemize}
+
+\section{Problem Statement}
+Organizations and student teams often struggle to evaluate budget behavior across different software process models such as Agile, Waterfall, and Hybrid. Existing tools may provide raw project data but lack intuitive comparative analytics and structured process alignment. The identified problem is the absence of a unified platform that captures project details, supports real-time insights, and enables model-based budget comparison while being managed through an Agile-DevOps planning framework.
+
+\section{Objectives of the Project}
+The primary objectives of this project are:
+\begin{itemize}
+    \item To design a centralized platform for recording and managing project budget-related data.
+    \item To compare budget and performance trends across Agile, Waterfall, and Hybrid models.
+    \item To implement secure user authentication, including email-password and Google sign-in.
+    \item To provide dashboard-based visual analytics for decision support.
+    \item To establish an Agile delivery process with clear sprint goals, user stories, and tasks.
+    \item To manage all planning artifacts through Azure DevOps for traceability and accountability.
+\end{itemize}
+
+\section{Target Users}
+The intended users of the system include:
+\begin{itemize}
+    \item \textbf{Students and Project Teams:} To monitor planned versus actual budget performance.
+    \item \textbf{Faculty and Evaluators:} To review analytical outputs and project progress evidence.
+    \item \textbf{Project Managers:} To compare model-specific project behavior and cost variance.
+    \item \textbf{Administrators:} To manage users and ensure data governance across the platform.
+\end{itemize}
+
+\section{Expected Features / Functionalities}
+The expected functional scope includes:
+\begin{itemize}
+    \item User registration and secure authentication.
+    \item Login and logout workflows with session handling.
+    \item Project creation, editing, deletion, and status tracking.
+    \item Dashboard visualization with summary metrics and charts.
+    \item Comparative analytics for Agile, Waterfall, and Hybrid models.
+    \item CSV export for reporting and external analysis.
+    \item Real-time updates for data consistency.
+    \item Administrative user management functions.
+\end{itemize}
+
+\section{Proposed Technology Stack}
+The proposed stack was selected to support modern web development, scalability, and rapid iteration:
+\begin{itemize}
+    \item \textbf{React:} Component-based front-end framework for dynamic UI development.
+    \item \textbf{Firebase:} Backend services for authentication and cloud-hosted database operations.
+    \item \textbf{Tailwind CSS:} Utility-first styling framework for consistent and responsive design.
+    \item \textbf{Chart.js:} Data visualization library for interactive comparative analytics.
+\end{itemize}
+
+\section{Azure DevOps Implementation}
+The project team created and configured an Azure DevOps project to formalize planning and execution.
+
+\subsection{Azure Boards Setup}
+Azure Boards was configured to define work structure, priorities, and sprint-level delivery expectations. Board views enabled transparent monitoring of item states and progress transitions.
+
+\begin{figure}[H]
+\centering
+\fbox{\parbox[c][6cm][c]{0.9\textwidth}{
+\centering
+Screenshot Placeholder \\
+(Replace with actual Azure DevOps screenshot)
+}}
+\caption{Azure DevOps Project Dashboard showing project overview and Azure Boards configuration}
+\end{figure}
+
+\subsection{Backlogs and Work Item Configuration}
+
+Backlogs were used to capture and refine product requirements. Each requirement was represented as a user story and then decomposed into technical tasks. Work item relationships were maintained to ensure traceability between planning and execution.
+
+\begin{figure}[H]
+\centering
+\fbox{\parbox[c][6cm][c]{0.9\textwidth}{
+\centering
+Screenshot Placeholder \\
+(Replace with actual Azure DevOps screenshot)
+}}
+\caption{Azure DevOps Backlog view displaying user stories and associated work items}
+\end{figure}
+
+\subsection{Sprint 1 Initialization}
+
+Sprint 1 was created as the first execution cycle. User stories and implementation tasks were assigned to team members with defined priorities and effort estimates. This setup enabled structured task tracking, progress monitoring, and collaborative delivery within the team.
+
+\begin{figure}[H]
+\centering
+\fbox{\parbox[c][6cm][c]{0.9\textwidth}{
+\centering
+Screenshot Placeholder \\
+(Replace with actual Azure DevOps screenshot)
+}}
+\caption{Sprint 1 Board in Azure DevOps displaying task distribution across workflow columns}
+\end{figure}
+
+\section{Product Backlog}
+The product backlog contains fifteen user stories aligned with system requirements and sprint goals.
+
+\subsection{User Stories (15 Items)}
+\begin{enumerate}
+    \item As a user, I want to register an account so that I can access the dashboard.
+    \item As a user, I want to log in securely so that my data is protected.
+    \item As a user, I want to log out so that my account remains secure.
+    \item As a user, I want to create a project so that I can track cost details.
+    \item As a user, I want to edit project details so that I can update information.
+    \item As a user, I want to delete a project so that I can manage my data.
+    \item As a user, I want to view all projects in a dashboard so that I can analyze them easily.
+    \item As a user, I want to compare Agile and Waterfall methodologies so that I can choose the best approach.
+    \item As a user, I want to visualize project data using charts so that I can understand trends clearly.
+    \item As a user, I want to export project data to CSV so that I can use it externally.
+    \item As a user, I want to login using Google so that authentication becomes easier.
+    \item As a user, I want real-time updates so that I always see the latest data.
+    \item As a user, I want to generate analysis reports so that I can evaluate performance.
+    \item As a user, I want secure data storage so that my project information is safe.
+    \item As an admin, I want to manage users so that the system remains controlled.
+\end{enumerate}
+
+\begin{figure}[H]
+\centering
+\fbox{\parbox[c][6cm][c]{0.9\textwidth}{
+\centering
+Screenshot Placeholder \\
+(Replace with actual Azure DevOps screenshot)
+}}
+\caption{Azure DevOps Product Backlog displaying prioritized user stories for the project}
+\end{figure}
+
+\section{Sprint Planning}
+\subsection{Sprint 1 Scope}
+Sprint 1 focused on building foundational product capabilities required for demonstration and evaluation. The sprint included authentication setup, core project CRUD operations, dashboard preparation, and initial analytics integration.
+
+\subsection{Task Allocation}
+Tasks were distributed among team members based on complexity, ownership, and expected completion sequence. The initial task groups included:
+\begin{itemize}
+    \item UI design and responsive component layout.
+    \item Firebase integration and authentication setup.
+    \item Data fetching and Firestore query handling.
+    \item Chart integration for comparative analysis views.
+\end{itemize}
+
+All tasks were tracked under Sprint 1 and linked to corresponding user stories to ensure complete traceability and effective sprint management.
+
+\begin{figure}[H]
+\centering
+\fbox{\parbox[c][6cm][c]{0.9\textwidth}{
+\centering
+Screenshot Placeholder \\
+(Replace with actual Azure DevOps screenshot)
+}}
+\caption{Sprint 1 Board showing user stories and associated tasks across workflow stages}
+\end{figure}
+\section{Work Items and Task Management}
+
+Work items were created to operationalize each user story. Each work item was assigned a clear title, owner, and status. Parent-child relationships were established to link user stories with their corresponding implementation tasks, ensuring traceability, accountability, and real-time progress tracking.
+
+Key task categories used during Sprint 1 include:
+\begin{itemize}
+    \item \textbf{Design Tasks:} Layout design, UI structuring, and component development.
+    \item \textbf{Integration Tasks:} Firebase setup, authentication flow implementation, and database connectivity.
+    \item \textbf{Implementation Tasks:} CRUD operations, dashboard functionality, and chart integration.
+    \item \textbf{Validation Tasks:} Input validation, UI consistency checks, and functional testing.
+\end{itemize}
+
+\begin{figure}[H]
+\centering
+\fbox{\parbox[c][6cm][c]{0.9\textwidth}{
+\centering
+Screenshot Placeholder \\
+(Replace with actual Azure DevOps screenshot)
+}}
+\caption{Azure DevOps Work Items view showing user stories linked with tasks and current status}
+\end{figure}
+
+
+\section{Screenshots Section}
+This section presents visual evidence from Azure DevOps demonstrating the implementation of Agile practices including backlog management, user stories, work items, sprint execution, and task assignments.
+
+\subsection{Product Backlog Screenshot}
+\begin{figure}[H]
+\centering
+\fbox{\parbox[c][6cm][c]{0.9\textwidth}{
+\centering
+Screenshot Placeholder \\
+(Replace with actual Azure DevOps screenshot)
+}}
+\caption{Product Backlog in Azure DevOps displaying prioritized user stories}
+\end{figure}
+
+\subsection{User Stories Screenshot}
+\begin{figure}[H]
+\centering
+\fbox{\parbox[c][6cm][c]{0.9\textwidth}{
+\centering
+Screenshot Placeholder \\
+(Replace with actual Azure DevOps screenshot)
+}}
+\caption{User Stories list showing defined requirements in the standard Agile format}
+\end{figure}
+
+\subsection{Work Items Screenshot}
+\begin{figure}[H]
+\centering
+\fbox{\parbox[c][6cm][c]{0.9\textwidth}{
+\centering
+Screenshot Placeholder \\
+(Replace with actual Azure DevOps screenshot)
+}}
+\caption{Work Items view showing user stories linked with tasks using parent-child relationships}
+\end{figure}
+
+\subsection{Sprint Board Screenshot}
+\begin{figure}[H]
+\centering
+\fbox{\parbox[c][6cm][c]{0.9\textwidth}{
+\centering
+Screenshot Placeholder \\
+(Replace with actual Azure DevOps screenshot)
+}}
+\caption{Sprint Board displaying task distribution across To Do, In Progress, and Done columns}
+\end{figure}
+
+\subsection{Task Assignments Screenshot}
+\begin{figure}[H]
+\centering
+\fbox{\parbox[c][6cm][c]{0.9\textwidth}{
+\centering
+Screenshot Placeholder \\
+(Replace with actual Azure DevOps screenshot)
+}}
+\caption{Task assignments showing ownership and status of tasks within Sprint 1}
+\end{figure}
+
+\subsection{Project UI Screenshots}
+\begin{figure}[H]
+\centering
+\fbox{\parbox[c][6cm][c]{0.9\textwidth}{
+\centering
+Screenshot Placeholder \\
+(Replace with actual Azure DevOps screenshot)
+}}
+\caption{Application Login and Registration Interface}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\fbox{\parbox[c][6cm][c]{0.9\textwidth}{
+\centering
+Screenshot Placeholder \\
+(Replace with actual Azure DevOps screenshot)
+}}
+\caption{Project Dashboard and KPI Cards}
+\end{figure}
+\begin{figure}[H]
+\centering
+\fbox{\parbox[c][6cm][c]{0.9\textwidth}{
+\centering
+Screenshot Placeholder \\
+(Replace with actual Azure DevOps screenshot)
+}}
+\caption{Project List and CRUD Operations Interface}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\fbox{\parbox[c][6cm][c]{0.9\textwidth}{
+\centering
+Screenshot Placeholder \\
+(Replace with actual Azure DevOps screenshot)
+}}
+\caption{Analysis Screen with Charts and Model Comparison}
+\end{figure}
+
+\section{Conclusion}
+Phase I established a robust project foundation by combining Agile planning discipline with DevOps-oriented tracking practices in Azure DevOps. The team successfully configured Azure Boards, Backlogs, Work Items, and Sprint 1, and documented fifteen user stories that map directly to core product goals. Task decomposition, assignment, and sprint-level monitoring ensured process transparency and execution clarity.
+
+The resulting planning framework supports systematic development in subsequent phases and demonstrates alignment with industry-relevant software engineering practices. The documented artifacts and screenshot placeholders provide strong academic evidence of process maturity, collaborative coordination, and readiness for iterative implementation and validation.
+
+\end{document}

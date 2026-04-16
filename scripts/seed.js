@@ -8,6 +8,20 @@ import { initializeApp } from 'firebase/app';
 import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword } from 'firebase/auth';
 import { getFirestore, collection, addDoc, Timestamp } from 'firebase/firestore';
 
+function parseArgs() {
+  const args = {};
+  for (let i = 2; i < process.argv.length; i += 1) {
+    const arg = process.argv[i];
+    if (arg.startsWith('--')) {
+      const key = arg.replace(/^--/, '');
+      const val = process.argv[i + 1] && !process.argv[i + 1].startsWith('--') ? process.argv[i + 1] : true;
+      args[key] = val;
+      if (val !== true) i += 1;
+    }
+  }
+  return args;
+}
+
 // Read env variables required for Firebase
 const firebaseConfig = {
   apiKey: process.env.VITE_FIREBASE_API_KEY,
@@ -49,70 +63,67 @@ async function ensureUser(email, password) {
   }
 }
 
-function sampleProjectsForUser(userId) {
+function sampleProjectsForUser(userId, count = 3) {
   const today = new Date();
   const iso = (d) => d.toISOString().split('T')[0];
 
-  return [
-    {
-      name: 'Project Alpha - Agile Migration',
-      methodology: 'Agile',
-      industry: 'Software',
-      size: 'Medium',
-      teamSize: 8,
-      status: 'completed',
-      plannedCost: 120000,
-      actualCost: 130000,
-      startDate: iso(new Date(today.getFullYear(), today.getMonth() - 6, 1)),
-      endDate: iso(new Date(today.getFullYear(), today.getMonth() - 3, 15)),
+  const methodologies = ['Agile', 'Waterfall', 'Hybrid'];
+  const industries = ['Software', 'Finance', 'Healthcare', 'Education', 'Retail', 'Logistics'];
+  const sizes = ['Small', 'Medium', 'Large'];
+  const statuses = ['Active', 'Completed', 'On Hold'];
+
+  const projects = [];
+
+  for (let i = 0; i < count; i += 1) {
+    const methodology = methodologies[i % methodologies.length];
+    const industry = industries[i % industries.length];
+    const size = sizes[i % sizes.length];
+    const status = statuses[i % statuses.length];
+
+    const plannedCost = 45000 + (i % 10) * 18000 + (i % 3) * 4500;
+    const costDelta = (i % 2 === 0 ? 1 : -1) * (2000 + (i % 7) * 1500);
+    const actualCost = Math.max(10000, plannedCost + costDelta);
+
+    const startDateObj = new Date(today.getFullYear(), today.getMonth() - (i % 18), 1 + (i % 20));
+    const endDateObj = status === 'Completed'
+      ? new Date(startDateObj.getFullYear(), startDateObj.getMonth() + 2 + (i % 4), 10 + (i % 15))
+      : null;
+
+    projects.push({
+      name: `Demo Project ${String(i + 1).padStart(2, '0')} - ${methodology} ${industry}`,
+      methodology,
+      industry,
+      size,
+      teamSize: 4 + (i % 17),
+      status,
+      plannedCost,
+      actualCost,
+      startDate: iso(startDateObj),
+      endDate: endDateObj ? iso(endDateObj) : '',
       userId,
       createdAt: Timestamp.now(),
       updatedAt: Timestamp.now(),
-    },
-    {
-      name: 'Project Beta - Waterfall Maintenance',
-      methodology: 'Waterfall',
-      industry: 'Finance',
-      size: 'Large',
-      teamSize: 20,
-      status: 'completed',
-      plannedCost: 250000,
-      actualCost: 245000,
-      startDate: iso(new Date(today.getFullYear(), today.getMonth() - 12, 1)),
-      endDate: iso(new Date(today.getFullYear(), today.getMonth() - 6, 30)),
-      userId,
-      createdAt: Timestamp.now(),
-      updatedAt: Timestamp.now(),
-    },
-    {
-      name: 'Project Gamma - Agile New Feature',
-      methodology: 'Agile',
-      industry: 'Healthcare',
-      size: 'Small',
-      teamSize: 4,
-      status: 'active',
-      plannedCost: 50000,
-      actualCost: 15000,
-      startDate: iso(new Date(today.getFullYear(), today.getMonth() - 1, 5)),
-      endDate: '',
-      userId,
-      createdAt: Timestamp.now(),
-      updatedAt: Timestamp.now(),
-    },
-  ];
+    });
+  }
+
+  return projects;
 }
 
 async function seed() {
   try {
-    const email = 'kasibhatlanavyatha25@gmail.com';
-    const password = 'navya123';
+    const args = parseArgs();
+    const email = args.email || process.env.SEED_EMAIL || 'kasibhatlanavyatha25@gmail.com';
+    const password = args.password || process.env.SEED_PASSWORD || 'Demo@12345';
+
+    const countRaw = parseInt(args.count || process.env.SEED_COUNT || '3', 10);
+    const count = Number.isFinite(countRaw) && countRaw > 0 ? countRaw : 3;
 
     const user = await ensureUser(email, password);
     const userId = user.uid;
 
-    console.log('Seeding projects for user id:', userId);
+    console.log('Seeding', count, 'projects for user id:', userId);
 
-    const projects = sampleProjectsForUser(userId);
+    const projects = sampleProjectsForUser(userId, count);
 
     for (const p of projects) {
       // Firestore expects Timestamp for createdAt/updatedAt fields and startDate/endDate when using FirestoreService
